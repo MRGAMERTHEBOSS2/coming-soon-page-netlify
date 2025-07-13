@@ -1,26 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operix.xyz</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Operix.xyz</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-    <div class="container">
-        <div class="content">
-            <img src="assets/logo.png" alt="Operix Logo" class="logo">
-            <h1>Operix.xyz</h1>
-            <p>Launching August 31st</p>
-            <p>Operix is the all-in-one platform for ERLC departments — with live dispatch, rosters, apps, certifications, & more.</p>
-            <p><strong>Built for structure. Designed for performance.</strong></p>
-
-            <div class="timer">
-                <p><strong>30 Days 20 Hours 49 Minutes 41 Seconds</strong></p>
-            </div>
-
-            <a href="https://discord.com" class="discord-link">Join our Discord to stay updated</a>
-        </div>
+  <div class="background">
+    <div class="card">
+      <img src="assets/logo.png" class="icon" alt="Operix Logo" />
+      <h1>Operix.xyz</h1>
+      <h2>Launching August 31st</h2>
+      <p>Operix is the all-in-one platform for ERLC departments — with live dispatch, rosters, apps, certifications, & more.</p>
+      <p class="highlight">Built for structure.<br/>Designed for performance.</p>
+      <div class="countdown">
+        <div><span>30</span><small>Days</small></div>
+        <div><span>20</span><small>Hours</small></div>
+        <div><span>49</span><small>Minutes</small></div>
+        <div><span>41</span><small>Seconds</small></div>
+      </div>
+      <a href="https://discord.com" class="discord-button">Join our <u>Discord</u> to stay updated →</a>
     </div>
+  </div>
+
+<script>
+  const targetDate = new Date("2025-08-31T00:00:00Z");
+
+  function updateCountdown() {
+    const now = new Date();
+    const diff = targetDate - now;
+
+    if (diff < 0) {
+      document.getElementById('countdown').innerHTML = "Launched!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / 1000 / 60) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    document.getElementById('days').textContent = days;
+    document.getElementById('hours').textContent = hours;
+    document.getElementById('minutes').textContent = minutes;
+    document.getElementById('seconds').textContent = seconds;
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+</script>
+
 </body>
 </html>
