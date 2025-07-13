@@ -1,90 +1,123 @@
+/* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #007cf0, #00dfd8);
+html, body {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom right, #1e90ff, #1ca1f2);
   color: white;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .container {
-  width: 100%;
-  padding: 20px;
-}
-
-.card {
-  background-color: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
-  padding: 40px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  padding: 2rem;
   max-width: 500px;
-  margin: auto;
+  width: 100%;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
 }
 
 .logo {
   width: 60px;
-  height: 60px;
-  margin-bottom: 20px;
+  margin: 0 auto 1rem;
+  border-radius: 15px;
+  background: rgba(255,255,255,0.08);
+  padding: 10px;
 }
 
 h1 {
   font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 10px;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 h2 {
-  font-size: 1.2rem;
-  margin-bottom: 20px;
-  font-weight: normal;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
 }
 
-.description {
+p {
   font-size: 1rem;
-  margin-bottom: 15px;
+  margin: 0.5rem 0;
+  line-height: 1.5;
 }
 
-.tagline {
-  font-size: 1.1rem;
-  margin-bottom: 30px;
+strong {
+  display: block;
+  margin-top: 0.75rem;
+  font-weight: 700;
 }
 
 .countdown {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 25px;
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
-.countdown div {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 10px 15px;
-  border-radius: 10px;
-  flex: 1;
-}
-
-.discord-btn {
-  display: inline-block;
-  padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.1);
-  color: white;
+  margin: 1.5rem 0;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 1rem;
   border-radius: 15px;
+}
+
+.time-box {
+  flex: 1;
+  margin: 0 0.25rem;
+}
+
+.time-box h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.time-box span {
+  font-size: 0.9rem;
+  display: block;
+  margin-top: 0.25rem;
+}
+
+.button {
+  margin-top: 1rem;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
   text-decoration: none;
+  color: white;
   font-weight: 500;
+  border: 1px solid rgba(255,255,255,0.2);
   transition: background 0.3s ease;
 }
 
-.discord-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+.button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.button .arrow {
+  margin-left: 0.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .countdown {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .time-box {
+    margin: 0;
+  }
 }
