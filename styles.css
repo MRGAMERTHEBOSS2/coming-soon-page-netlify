@@ -1,123 +1,112 @@
-/* General Reset */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html, body {
-  height: 100%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to bottom right, #1e90ff, #1ca1f2);
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(145deg, #0066ff, #0d0f31);
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+  min-height: 100vh;
+  padding: 20px;
 }
 
 .container {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-  padding: 2rem;
-  max-width: 500px;
+  padding: 30px 20px;
+  max-width: 400px;
   width: 100%;
   text-align: center;
-  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
   width: 60px;
-  margin: 0 auto 1rem;
-  border-radius: 15px;
-  background: rgba(255,255,255,0.08);
+  height: 60px;
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   padding: 10px;
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 24px;
   font-weight: 700;
-  margin-bottom: 0.5rem;
+  margin-bottom: 10px;
 }
 
 h2 {
-  font-size: 1.25rem;
+  font-size: 18px;
   font-weight: 600;
-  margin-bottom: 1.25rem;
+  margin-bottom: 20px;
 }
 
 p {
-  font-size: 1rem;
-  margin: 0.5rem 0;
-  line-height: 1.5;
+  font-size: 14px;
+  color: #dbe3f4;
+  margin-bottom: 20px;
+  line-height: 1.6;
 }
 
 strong {
   display: block;
-  margin-top: 0.75rem;
-  font-weight: 700;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 30px;
 }
 
 .countdown {
   display: flex;
   justify-content: space-between;
-  margin: 1.5rem 0;
-  background: rgba(255, 255, 255, 0.07);
-  padding: 1rem;
-  border-radius: 15px;
+  gap: 10px;
+  margin-bottom: 30px;
 }
 
 .time-box {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 10px;
   flex: 1;
-  margin: 0 0.25rem;
 }
 
 .time-box h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .time-box span {
-  font-size: 0.9rem;
-  display: block;
-  margin-top: 0.25rem;
+  font-size: 12px;
+  color: #dbe3f4;
 }
 
 .button {
-  margin-top: 1rem;
   display: inline-flex;
+  justify-content: center;
   align-items: center;
+  gap: 6px;
   background: rgba(255, 255, 255, 0.08);
-  padding: 0.75rem 1.25rem;
-  border-radius: 999px;
-  text-decoration: none;
-  color: white;
+  border-radius: 12px;
+  padding: 12px 18px;
+  font-size: 14px;
   font-weight: 500;
-  border: 1px solid rgba(255,255,255,0.2);
+  color: #dbe3f4;
+  text-decoration: none;
   transition: background 0.3s ease;
 }
 
 .button:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.button .arrow {
-  margin-left: 0.5rem;
-  font-weight: bold;
-  font-size: 1rem;
-}
-
-/* Responsive */
-@media screen and (max-width: 480px) {
-  .countdown {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .time-box {
-    margin: 0;
-  }
+.arrow {
+  font-size: 16px;
+  transform: translateY(1px);
 }
