@@ -4,57 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Operix.xyz Launch</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <div class="card">
-      <img src="logo.png" alt="Operix Logo" class="logo" />
-      <h1>Operix.xyz</h1>
-      <h2>Launching August 31st</h2>
-      <p class="description">
-        Operix is the all-in-one platform for ERLC departments — with live dispatch, rosters, apps, certifications, & more.
-      </p>
-      <p class="tagline">
-        <strong>Built for structure.<br />Designed for performance.</strong>
-      </p>
+    <!-- Logo -->
+    <img src="logo.png" alt="Operix Logo" class="logo" />
 
-      <div id="countdown" class="countdown">
-        <div><span id="days">00</span><br />Days</div>
-        <div><span id="hours">00</span><br />Hours</div>
-        <div><span id="minutes">00</span><br />Minutes</div>
-        <div><span id="seconds">00</span><br />Seconds</div>
+    <!-- Headings -->
+    <h1>Operix.xyz</h1>
+    <h2>Launching August 31st</h2>
+
+    <!-- Description -->
+    <p>Operix is the all-in-one platform for ERLC departments — with live dispatch, rosters, apps, certifications, & more.</p>
+    <strong>Built for structure.<br />Designed for performance.</strong>
+
+    <!-- Countdown Timer -->
+    <div class="countdown">
+      <div class="time-box">
+        <h3 id="days">00</h3>
+        <span>Days</span>
       </div>
-
-      <a href="#" class="discord-btn">Join our <u>Discord</u> to stay updated</a>
+      <div class="time-box">
+        <h3 id="hours">00</h3>
+        <span>Hours</span>
+      </div>
+      <div class="time-box">
+        <h3 id="minutes">00</h3>
+        <span>Minutes</span>
+      </div>
+      <div class="time-box">
+        <h3 id="seconds">00</h3>
+        <span>Seconds</span>
+      </div>
     </div>
+
+    <!-- Discord Link Button -->
+    <a href="https://discord.gg/yourlink" target="_blank" class="button">
+      Join our <u>Discord</u> to stay updated
+      <span class="arrow">➔</span>
+    </a>
   </div>
 
+  <!-- Countdown Script -->
   <script>
-    const targetDate = new Date("2025-08-31T00:00:00Z");
+    const launchDate = new Date("August 31, 2025 00:00:00").getTime();
 
-    function updateCountdown() {
-      const now = new Date();
-      const diff = targetDate - now;
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const timeLeft = launchDate - now;
 
-      if (diff <= 0) {
-        document.getElementById("countdown").innerHTML = "Launched!";
-        return;
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+      document.getElementById("days").textContent = days.toString().padStart(2, '0');
+      document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+      document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+      document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+      if (timeLeft < 0) {
+        clearInterval(countdown);
+        document.querySelector(".countdown").textContent = "Launched!";
       }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / 1000 / 60) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      document.getElementById("days").textContent = days;
-      document.getElementById("hours").textContent = hours;
-      document.getElementById("minutes").textContent = minutes;
-      document.getElementById("seconds").textContent = seconds;
-    }
-
-    setInterval(updateCountdown, 1000);
-    updateCountdown();
+    }, 1000);
   </script>
 </body>
 </html>
