@@ -2,54 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Operix.xyz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operix.xyz Launch</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="background">
+  <div class="container">
     <div class="card">
-      <img src="logo.png" class="icon" alt="Operix Logo" />
+      <img src="logo.png" alt="Operix Logo" class="logo" />
       <h1>Operix.xyz</h1>
       <h2>Launching August 31st</h2>
-      <p>Operix is the all-in-one platform for ERLC departments — with live dispatch, rosters, apps, certifications, & more.</p>
-      <p class="highlight">Built for structure.<br/>Designed for performance.</p>
-      <div class="countdown">
-        <div><span>30</span><small>Days</small></div>
-        <div><span>20</span><small>Hours</small></div>
-        <div><span>49</span><small>Minutes</small></div>
-        <div><span>41</span><small>Seconds</small></div>
+      <p class="description">
+        Operix is the all-in-one platform for ERLC departments — with live dispatch, rosters, apps, certifications, & more.
+      </p>
+      <p class="tagline">
+        <strong>Built for structure.<br />Designed for performance.</strong>
+      </p>
+
+      <div id="countdown" class="countdown">
+        <div><span id="days">00</span><br />Days</div>
+        <div><span id="hours">00</span><br />Hours</div>
+        <div><span id="minutes">00</span><br />Minutes</div>
+        <div><span id="seconds">00</span><br />Seconds</div>
       </div>
-      <a href="https://discord.com" class="discord-button">Join our <u>Discord</u> to stay updated →</a>
+
+      <a href="#" class="discord-btn">Join our <u>Discord</u> to stay updated</a>
     </div>
   </div>
 
-<script>
-  const targetDate = new Date("2025-08-31T00:00:00Z");
+  <script>
+    const targetDate = new Date("2025-08-31T00:00:00Z");
 
-  function updateCountdown() {
-    const now = new Date();
-    const diff = targetDate - now;
+    function updateCountdown() {
+      const now = new Date();
+      const diff = targetDate - now;
 
-    if (diff < 0) {
-      document.getElementById('countdown').innerHTML = "Launched!";
-      return;
+      if (diff <= 0) {
+        document.getElementById("countdown").innerHTML = "Launched!";
+        return;
+      }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / 1000 / 60) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("days").textContent = days;
+      document.getElementById("hours").textContent = hours;
+      document.getElementById("minutes").textContent = minutes;
+      document.getElementById("seconds").textContent = seconds;
     }
 
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / 1000 / 60) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    document.getElementById('days').textContent = days;
-    document.getElementById('hours').textContent = hours;
-    document.getElementById('minutes').textContent = minutes;
-    document.getElementById('seconds').textContent = seconds;
-  }
-
-  setInterval(updateCountdown, 1000);
-  updateCountdown();
-</script>
-
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+  </script>
 </body>
 </html>
